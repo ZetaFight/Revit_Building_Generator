@@ -1,0 +1,31 @@
+﻿<Window x:Class="MyPlugin.LevelCmdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyPlugin"
+        mc:Ignorable="d"
+        Title="LevelCmdWindow" Height="260" Width="600" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="71"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Image Source="/MyPlugin;component/Assets/楼层标高.png" Width="50" Margin="10,0,0,0"></Image>
+            <TextBlock Height="40" Width="500" VerticalAlignment="Center" Margin="15,0,0,0" TextWrapping="Wrap" FontSize="16">输入说明：从第1层层高开始输入；以毫米mm作为单位；逗号作为分隔符：xxxx,xxxx,xxxx,.....，例如4500,3600,4500,3600</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" Margin="12,0,0,0" FontSize="16">各层层高：</TextBlock>
+            <TextBox Name="txtBoxLevel" Height="20" Width="450"></TextBox>
+        </StackPanel>
+
+        <StackPanel Width="250" Grid.Row="3" Orientation="Horizontal">
+            <Button Name="btnConfirm" Width="80" Height="35" Margin="10,0,0,0" Click="btnConfirm_Click">确定</Button>
+            <Button Name="btnCancel" Width="80" Height="35" Margin="70,0,0,0" Click="btnCancel_Click">取消</Button>
+        </StackPanel>
+    </Grid>
+</Window>

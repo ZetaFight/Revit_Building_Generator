@@ -1,0 +1,43 @@
+﻿<Window x:Class="MyPlugin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyPlugin" d:DataContext="{d:DesignInstance Type=local:ViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="729" Width="750">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="600"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="AliceBlue">
+            <Image Source="/MyPlugin;component/Assets/建筑修建.png" Width="50" Margin="170,0,15,0"></Image>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="MicroSoft JhengHei">框架结构快速生成工具</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+            <Button Name="btnCreateGrid" Content="{Binding CreateGridBtnContent}" Command="{Binding btnCreateGridCommand}" Height="50" Width="120" Margin="0, 20, 0, 10" FontSize="16" FontFamily="MicroSoft JhengHei"></Button>
+            <Button Name="btnCreateLevel" Content="{Binding CreateLevelBtnContent}" Command="{Binding btnCreateLevelCommand}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei"></Button>
+            <Button Name="btnCreateFrame" Command="{Binding btnCreateFrameCommand}" IsEnabled="{Binding IsBtnCreateFrameEnabled}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei">生成梁柱框架</Button>
+            <Button Name="btnCreateFloorWall" Command="{Binding btnCreateFloorWallCommand}" IsEnabled="{Binding IsBtnCreateFloorWallEnabled}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei">生成板墙</Button>
+            <Button Name="btnCreateRooftopWall" Command="{Binding btnCreateRooftopWallCommand}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei">创建梯屋</Button>
+            <Button Name="btnEditWall" Command="{Binding btnEditWallCommand}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei">创建窗户</Button>
+            <Button Name="btnShowModel" Command="{Binding btnShowModelCommand}" Height="50" Width="120" Margin="10" FontSize="16" FontFamily="MicroSoft JhengHei">展示模型</Button>
+            <Button x:Name="btnMore" Command="{Binding btnMoreCommand}" Height="50" Width="120" Margin="10" FontSize="15" FontFamily="MicroSoft JhengHei" Content="更多功能待开发"/>
+            
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.Row="1" Margin="0,10,27,19" BorderBrush="PowderBlue" BorderThickness="2" >
+            <ContentControl Content="{Binding PreviewControl}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+
+
+    </Grid>
+</Window>
